@@ -43,9 +43,9 @@ app.post("/api/blog",async(req,res)=>{
     }
 )
 // to get
-app.get('/api/assets/images/cakes.jpg',(req,res)=>{
-    console.log(req.files)
-})
+// app.get('/api/assets/images/cakes.jpg',(req,res)=>{
+//     console.log(req.files)
+// })
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/meanstackproject/index.html'));
    });
