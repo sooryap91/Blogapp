@@ -23,5 +23,5 @@ const BlogSchema = new Schema ({
      }
     
 })
-let BlogDATA = mongoose.model('blog',BlogSchema)
+let BlogDATA = mongoose.model('blogs',BlogSchema)
 module.exports = BlogDATA

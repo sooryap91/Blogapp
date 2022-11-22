@@ -1,9 +1,9 @@
 const express = require('express')
 const app = new express();
 const path = require('path');
-// app.use(express.static('./dist/meanstackproject'));
+app.use(express.static('./dist/meanstackproject'));
     
-app.use(express.static(path.join(__dirname+'/dist/meanstackproject')));
+// app.use(express.static(path.join(__dirname+'/dist/meanstackproject')));
 
 
 
@@ -14,10 +14,10 @@ require('./middleware/mongodb')
 app.use(cors())
 const logger=require('morgan')
 app.use(logger('dev'))
-// const api = require('./routes/api')
-// app.use('/api',api)
+const api = require('./routes/api')
+app.use('/api',api)
 const DATA = require('./models/blog');
-app.post("/api/blog",async(req,res)=>{
+app.post("/api/addBlog",async(req,res)=>{
     try{
        console.log(req.body)
        let item =req.body;
@@ -31,7 +31,7 @@ app.post("/api/blog",async(req,res)=>{
    })
 
 
-   app.get("/api/blogdetails",async(req,res)=>{
+   app.get("/api/getBlogdetails",async(req,res)=>{
     try{
         const list = await DATA.find()
         res.send(list)
@@ -54,3 +54,7 @@ app.listen(3000,()=>{
     console.log("Server is listening to port 3000")
 })
     
+// app.listen(process.env.PORT || 3000, function(){
+//     console.log("Server is listening to port 3000")
+
+//   });
