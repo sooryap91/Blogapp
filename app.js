@@ -50,11 +50,11 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/meanstackproject/index.html'));
    });
 
-app.listen(3000,()=>{
-    console.log("Server is listening to port 3000")
-})
-    
-// app.listen(process.env.PORT || 3000, function(){
+// app.listen(3000,()=>{
 //     console.log("Server is listening to port 3000")
+// })
+    
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Server is listening to port 3000")
 
-//   });
+  });
